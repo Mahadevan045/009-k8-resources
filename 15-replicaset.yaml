@@ -14,10 +14,10 @@ spec:
       tier: frontend
   template: # this is pod definition
     metadata:
-      labels:
+      labels: # these label belongs to pod
         app: nginx
         tier: frontend
     spec:
       containers:
-      - name: php-redis
-        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+      - name: nginx
+        image: nginx 
