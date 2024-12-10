@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx
+  labels: # these are replicaset labels.
+    app: nginx 
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector: # these are used ,to select the pod to create replicas
+    matchLabels:
+      app: nginx
+      tier: frontend
+  template: # this is pod definition
+    metadata:
+      labels:
+        app: nginx
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
